@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>雨金工 yu.jin.atelier | 為愛鑄造・溫暖陪伴</title>
+    <style>
+        :root {
+            /* 將品牌藍色系更新為指定的 #5c879a */
+            --primary-color: #5c879a; 
+            --secondary-color: #dfb15b; /* 品牌金色系 */
+            --bg-color: #faf8f5;
+            --text-color: #4a4a4a;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        header {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #5c879a;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        header img {
+            height: 80px;
+        }
+        .hero {
+            text-align: center;
+            padding: 0px 10px 1px;
+            background-color: #56768b;
+            color: #fff;
+        }
+        
+        /* 圖片輪播容器設定 */
+        .slider-container {
+            width: 100%;
+            max-width: 600px;
+            max-height: 400px;
+            margin: 0 auto 10px auto;
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4 / 3; /* 確保容器比例，避免跳動 */
+        }
+        
+        .slider-wrapper {
+            display: flex;
+            width: 500%; /* 5張圖片，所以是500% */
+            animation: slideAnimation 20s infinite; /* 總時長20秒，無限循環 */
+        }
+        
+        .slider-wrapper img {
+            width: 20%; /* 100% / 5張圖片 */
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* 輪播動畫關鍵影格 (Keyframes) */
+        @keyframes slideAnimation {
+            0%, 15% { transform: translateX(0); }       /* 第一張圖 (head1) */
+            20%, 35% { transform: translateX(-20%); }   /* 第二張圖 (head2) */
+            40%, 55% { transform: translateX(-40%); }   /* 第三張圖 (head3) */
+            60%, 75% { transform: translateX(-60%); }   /* 第四張圖 (head4) */
+            80%, 95% { transform: translateX(-80%); }   /* 第五張圖 (head5) */
+            100% { transform: translateX(0); }          /* 回到第一張圖 */
+        }
+
+        .hero h1 {
+            color: var(--secondary-color);
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-size: 2.2rem;
+            letter-spacing: 2px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        /* 新增品牌引言區塊的樣式 */
+        .brand-intro {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #fff; /* 使用白色背景突顯文字 */
+            margin-bottom: 40px;
+        }
+        .brand-intro h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        .brand-intro p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .gallery-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .card-content {
+            padding: 20px;
+        }
+        .card h3 {
+            color: var(--primary-color);
+            margin: 0 0 10px 0;
+            font-size: 1.15rem;
+        }
+        .card p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #666;
+        }
+        .pricing-section {
+            background: #fff;
+            padding: 60px 20px;
+            border-top: 1px solid #eaeaea;
+        }
+        .pricing-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .pricing-container h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        th, td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 500;
+        }
+        tr:hover {
+            background-color: #f9f9f9;
+        }
+        .footer-cta {
+            text-align: center;
+            padding: 60px 20px;
+            background-color: var(--primary-color);
+            color: white;
+        }
+        .footer-cta h2 {
+            color: var(--secondary-color);
+            margin-top: 0;
+        }
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 12px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #c99c4b;
+        }
+    </style>
+</head>
+<body>
+
+<!-- 頂部 LOGO 區塊 -->
+<header>
+    <img src="yu_jin_logo.jpg" alt="雨金工 LOGO">
+</header>
+
+<!-- 主視覺橫幅 (含五張圖片自動輪播) -->
+<section class="hero">
+    <div class="slider-container">
+        <div class="slider-wrapper">
+            <img src="head1.jpg" alt="寵物與貓狗合照 1">
+            <img src="head2.jpg" alt="寵物與貓狗合照 2">
+            <img src="head3.jpg" alt="寵物與貓狗合照 3">
+            <img src="head4.jpg" alt="寵物與貓狗合照 4">
+            <img src="head5.jpg" alt="寵物與貓狗合照 5">
+        </div>
+    </div>
+    <h1>為愛鑄造・溫暖陪伴</h1>
+    <p>讓每一天的日常，都有溫暖相隨</p>
+</section>
+
+<!-- 品牌引言區塊：放入附圖的感性文案 -->
+<section class="brand-intro">
+    <h2>牠的世界只有你，而你的身上有牠。</h2>
+    <p>
+        生命交織的證據，就在這方寸之間的起伏裡。<br>
+        將毛孩的掌紋貼近心房，讓愛成為最有份量的歸屬。<br>
+        這份專屬的聯繫，是給自己最溫柔的禮物，見證彼此生命中最美好的相遇。
+    </p>
+</section>
+
+<!-- 九宮格文案藝廊 -->
+<section class="gallery-container">
+    <div class="grid">
+        <div class="card">
+            <img src="九宮格_1.jpg" alt="遇見・你的專屬陪伴">
+            <div class="card-content">
+                <h3>遇見・你的專屬陪伴</h3>
+                <p>把我的可愛，變成你專屬的隨身陪伴</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="九宮格_2.jpg" alt="主子的・獨特印記">
+            <div class="card-content">
+                <h3>主子的・獨特印記</h3>
+                <p>獨一無二的紋理密碼</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="九宮格_3.jpg" alt="超萌・汪喵掌聲鼓勵">
+            <div class="card-content">
+                <h3>超萌・汪喵掌聲鼓勵</h3>
+                <p>這份療癒感，值得你帶在身邊！</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="九宮格_4.jpg" alt="捨不得放手・Q彈肉球">
+            <div class="card-content">
+                <h3>捨不得放手・Q彈肉球</h3>
+                <p>完美復刻毛孩飽滿又可愛的小爪子！</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="九宮格_5.jpg" alt="雨金工品牌 LOGO">
+            <div class="card-content">
+                <h3>雨金工 yu.jin.atelier</h3>
+                <p>為愛鑄造・溫暖陪伴</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="九宮格_6.jpg" alt="每次觸摸・都是溫暖">
+            <div class="card-content">
+                <h3>每次觸摸・都是溫暖</h3>
+                <p>每次觸摸，都是在輕撫他的鼻尖。</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="九宮格_7.jpg" alt="專屬・你的客製指南">
+            <div class="card-content">
+                <h3>專屬・你的客製指南</h3>
+                <p>私訊雨金工瞭解更多</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="九宮格_8.jpg" alt="指間・永遠的相伴">
+            <div class="card-content">
+                <h3>指間・永遠的相伴</h3>
+                <p>放在心上更戴在指間</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="九宮格_9.jpg" alt="讓每一天的日常，都有溫暖相隨">
+            <div class="card-content">
+                <h3>溫暖相伴</h3>
+                <p>讓每一天的日常，都有溫暖相隨</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 客製價格表區塊 -->
+<section class="pricing-section">
+    <div class="pricing-container">
+        <h2>寵物飾品價格表</h2>
+        <div style="overflow-x:auto;">
+            <table>
+                <tr>
+                    <th>類別</th>
+                    <th>尺寸</th>
+                    <th>項目名稱</th>
+                    <th>價格(元)</th>
+                </tr>
+                <tr><td>A</td><td>寬1.7cm X 高1.2cm</td><td>銀項鍊(貓鼻)</td><td>4980</td></tr>
+                <tr><td>B</td><td>寬1.6cm X 高1.6cm</td><td>銀項鍊(小型犬貓鼻)</td><td>4980</td></tr>
+                <tr><td>C</td><td>寬2.3cm X 高2.3cm</td><td>銀項鍊(小型犬貓鼻)</td><td>5980</td></tr>
+                <tr><td>C</td><td>寬2.3cm X 高2.3cm</td><td>C尺寸銅鼻紋或銅腳掌</td><td>2980</td></tr>
+                <tr><td>C+</td><td>寬3.6cm X 高3.9cm</td><td>C+尺寸內-銅</td><td>4580</td></tr>
+                <tr><td>D</td><td>寬5.0cm X 高6.0cm</td><td>D尺寸內-銅</td><td>5980</td></tr>
+                <tr><td>E</td><td>寬6.5cm X 高8.8cm</td><td>E尺寸內-銅</td><td>7980</td></tr>
+                <tr><td>背面加做UV裝飾</td><td>-</td><td>ABC尺寸</td><td>600</td></tr>
+                <tr><td>背面加做UV裝飾</td><td>-</td><td>C+尺寸內</td><td>900</td></tr>
+                <tr><td>背面加做UV裝飾</td><td>-</td><td>D尺寸內</td><td>1200</td></tr>
+                <tr><td>背面加做UV裝飾</td><td>-</td><td>E尺寸內</td><td>1800</td></tr>
+                <tr><td>寵物紋UV飾品</td><td>-</td><td>ABC尺寸</td><td>880</td></tr>
+                <tr><td>寵物紋UV飾品</td><td>-</td><td>C+尺寸內</td><td>1180</td></tr>
+                <tr><td>寵物紋UV飾品</td><td>-</td><td>D尺寸內</td><td>1680</td></tr>
+                <tr><td>寵物紋UV飾品</td><td>-</td><td>E尺寸內</td><td>2580</td></tr>
+                <tr><td>戒指系列</td><td>-</td><td>S號戒指</td><td>3980</td></tr>
+                <tr><td>戒指系列</td><td>-</td><td>M號戒指</td><td>4980</td></tr>
+                <tr><td>戒指系列</td><td>-</td><td>L號戒指</td><td>5980</td></tr>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- 頁尾行動呼籲 -->
+<section class="footer-cta">
+    <h2>專屬・你的客製指南</h2>
+    <p>準備好為寶貝留下獨一無二的印記了嗎？</p>
+    <a href="https://www.instagram.com/yu.jin.atelier/" target="_blank" class="btn">私訊 IG 預約訂製</a>
+</section>
+
+</body>
+</html>
