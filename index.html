@@ -83,7 +83,7 @@
             font-size: 1.2rem;
         }
 
-        /* 新增品牌引言區塊的樣式 */
+        /* 新增品牌引言區塊的樣式 (電腦版預設置中) */
         .brand-intro {
             text-align: center;
             padding: 60px 20px;
@@ -203,6 +203,22 @@
         .btn:hover {
             background-color: #c99c4b;
         }
+
+        /* 針對手機版面的響應式調整 */
+        @media (max-width: 768px) {
+            .brand-intro {
+                text-align: left; /* 手機版改為靠左對齊 */
+                padding: 40px 20px; /* 稍微縮小上下間距 */
+            }
+            .brand-intro h2 {
+                font-size: 1.5rem; /* 標題同步微調縮小 */
+                margin-bottom: 15px;
+            }
+            .brand-intro p {
+                font-size: 0.8rem; /* 內文縮小至 0.8rem */
+                line-height: 1.6;
+            }
+        }
     </style>
 </head>
 <body>
@@ -243,64 +259,55 @@
         <div class="card">
             <img src="九宮格_1.jpg" alt="遇見・你的專屬陪伴">
             <div class="card-content">
-                <h3>遇見・你的專屬陪伴</h3>
-                <p>把我的可愛，變成你專屬的隨身陪伴</p>
+                <h3></h3>
             </div>
         </div>
         <div class="card">
             <img src="九宮格_2.jpg" alt="主子的・獨特印記">
             <div class="card-content">
-                <h3>主子的・獨特印記</h3>
-                <p>獨一無二的紋理密碼</p>
+                <h3></h3>
             </div>
         </div>
         <div class="card">
             <img src="九宮格_3.jpg" alt="超萌・汪喵掌聲鼓勵">
             <div class="card-content">
-                <h3>超萌・汪喵掌聲鼓勵</h3>
-                <p>這份療癒感，值得你帶在身邊！</p>
+                <h3></h3>
             </div>
         </div>
         <div class="card">
             <img src="九宮格_4.jpg" alt="捨不得放手・Q彈肉球">
             <div class="card-content">
-                <h3>捨不得放手・Q彈肉球</h3>
-                <p>完美復刻毛孩飽滿又可愛的小爪子！</p>
+                <h3></h3>
             </div>
         </div>
         <div class="card">
             <img src="九宮格_5.jpg" alt="雨金工品牌 LOGO">
             <div class="card-content">
-                <h3>雨金工 yu.jin.atelier</h3>
-                <p>為愛鑄造・溫暖陪伴</p>
+                <h3></h3>
             </div>
         </div>
         <div class="card">
             <img src="九宮格_6.jpg" alt="每次觸摸・都是溫暖">
             <div class="card-content">
-                <h3>每次觸摸・都是溫暖</h3>
-                <p>每次觸摸，都是在輕撫他的鼻尖。</p>
+                <h3></h3>
             </div>
         </div>
         <div class="card">
             <img src="九宮格_7.jpg" alt="專屬・你的客製指南">
             <div class="card-content">
-                <h3>專屬・你的客製指南</h3>
-                <p>私訊雨金工瞭解更多</p>
+                <h3></h3>
             </div>
         </div>
         <div class="card">
             <img src="九宮格_8.jpg" alt="指間・永遠的相伴">
             <div class="card-content">
-                <h3>指間・永遠的相伴</h3>
-                <p>放在心上更戴在指間</p>
+                <h3></h3>
             </div>
         </div>
         <div class="card">
             <img src="九宮格_9.jpg" alt="讓每一天的日常，都有溫暖相隨">
             <div class="card-content">
-                <h3>溫暖相伴</h3>
-                <p>讓每一天的日常，都有溫暖相隨</p>
+                <h3></h3>
             </div>
         </div>
     </div>
